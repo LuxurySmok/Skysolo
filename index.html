@@ -22,20 +22,6 @@ border-bottom: 2px solid #d4af37;
 box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
 position: relative;
 }
-.admin-indicator {
-position: absolute;
-top: 10px; right: 10px;
-background: linear-gradient(135deg, #ff4444, #cc0000);
-color: #fff;
-padding: 0.4rem 1rem;
-border-radius: 20px;
-font-size: 0.8rem;
-font-weight: bold;
-display: none;
-animation: pulse 2s infinite;
-}
-.admin-indicator.active { display: block; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 h1 {
 font-size: 3rem;
 background: linear-gradient(135deg, #d4af37 0%, #f4e5c2 50%, #d4af37 100%);
@@ -45,8 +31,6 @@ background-clip: text;
 margin-bottom: 0.5rem;
 text-transform: uppercase;
 letter-spacing: 3px;
-cursor: pointer;
-user-select: none;
 }
 h1:hover { opacity: 0.9; }
 .subtitle { color: #888; font-size: 1.1rem; margin-top: 0.5rem; }
@@ -83,298 +67,12 @@ max-width: 1400px;
 margin: 0 auto;
 padding: 3rem 2rem;
 }
-.stats {
-text-align: center;
-margin-bottom: 3rem;
-padding: 1.5rem;
-background: rgba(212, 175, 55, 0.05);
-border: 1px solid #333;
-border-radius: 10px;
-}
-.stats-number { color: #d4af37; font-size: 1.5rem; font-weight: bold; }
 .led-strip {
 height: 3px;
 background: linear-gradient(90deg, transparent, #d4af37, transparent);
 box-shadow: 0 0 20px #d4af37;
 margin: 2rem 0;
 }
-.products-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 2rem;
-margin-bottom: 3rem;
-}
-.product-card {
-background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
-border: 1px solid #333;
-border-radius: 20px;
-overflow: hidden;
-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-position: relative;
-box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-display: flex;
-flex-direction: column;
-}
-.product-card::before {
-content: '';
-position: absolute;
-top: 0; left: -100%;
-width: 100%; height: 100%;
-background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-transition: left 0.5s;
-}
-.product-card:hover::before { left: 100%; }
-.product-card:hover {
-transform: translateY(-10px) scale(1.02);
-border-color: #d4af37;
-box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.2);
-}
-.product-image {
-width: 100%;
-height: 280px;
-background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-display: flex;
-align-items: center;
-justify-content: center;
-position: relative;
-overflow: hidden;
-}
-.product-image::after {
-content: '';
-position: absolute;
-bottom: 0; left: 0; right: 0;
-height: 60px;
-background: linear-gradient(to top, rgba(212, 175, 55, 0.2), transparent);
-}
-.product-image img {
-width: 100%; height: 100%;
-object-fit: contain;
-padding: 1rem;
-transition: transform 0.4s ease;
-}
-.product-card:hover .product-image img { transform: scale(1.05); }
-.product-image-placeholder { font-size: 4rem; color: #d4af37; opacity: 0.5; }
-.product-badge {
-position: absolute;
-top: 15px; right: 15px;
-background: linear-gradient(135deg, #d4af37, #f4e5c2);
-color: #000;
-padding: 0.5rem 1rem;
-border-radius: 25px;
-font-weight: bold;
-font-size: 0.8rem;
-z-index: 10;
-}
-.product-info { padding: 1.2rem; flex-grow: 1; display: flex; flex-direction: column; }
-.product-name { font-size: 1.25rem; color: #fff; margin-bottom: 0.4rem; font-weight: 700; }
-.product-description { color: #888; font-size: 0.88rem; margin-bottom: 0.9rem; line-height: 1.5; flex-grow: 1; }
-.product-specs { display: flex; gap: 0.6rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
-.spec {
-background: rgba(212, 175, 55, 0.1);
-border: 1px solid #d4af37;
-padding: 0.35rem 0.7rem;
-border-radius: 5px;
-font-size: 0.75rem;
-color: #d4af37;
-}
-.product-actions { display: flex; gap: 0.8rem; margin-top: auto; }
-.btn {
-flex: 1;
-padding: 0.85rem 0.5rem;
-border: none;
-border-radius: 8px;
-font-weight: bold;
-cursor: pointer;
-transition: all 0.3s;
-text-transform: uppercase;
-letter-spacing: 1px;
-font-size: 0.78rem;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-text-decoration: none;
-line-height: 1.2;
-text-align: center;
-}
-.btn:hover { text-decoration: none; }
-.btn-primary { background: linear-gradient(135deg, #00ff88, #00cc6a); color: #000; }
-.btn-primary:hover { box-shadow: 0 0 30px rgba(0, 255, 136, 0.6); transform: translateY(-2px); }
-.btn-secondary { background: transparent; color: #d4af37; border: 2px solid #d4af37; }
-.btn-secondary:hover { background: #d4af37; color: #000; box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
-
-/* ===== COMENTARIOS ===== */
-.comments-section {
-background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
-border: 1px solid #333;
-border-radius: 25px;
-padding: 2.5rem;
-margin: 3rem 0;
-box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
-}
-.comments-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 2rem;
-padding-bottom: 1.5rem;
-border-bottom: 1px solid #333;
-flex-wrap: wrap;
-gap: 1rem;
-}
-.comments-header h2 { color: #d4af37; font-size: 1.8rem; display: flex; align-items: center; gap: 0.5rem; }
-.comments-stats { display: flex; gap: 1.5rem; align-items: center; }
-.avg-rating { display: flex; align-items: center; gap: 0.5rem; font-size: 1.3rem; color: #ffd700; }
-.avg-rating span { color: #fff; font-size: 1rem; margin-left: 0.5rem; }
-.total-comments { color: #888; font-size: 0.95rem; }
-.admin-controls { display: none; gap: 0.8rem; align-items: center; }
-.admin-controls.active { display: flex; }
-.btn-admin {
-background: linear-gradient(135deg, #ff4444, #cc0000);
-color: #fff;
-border: none;
-padding: 0.6rem 1.2rem;
-border-radius: 20px;
-font-weight: bold;
-cursor: pointer;
-transition: all 0.3s;
-font-size: 0.85rem;
-display: flex;
-align-items: center;
-gap: 0.4rem;
-}
-.btn-admin:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(255, 68, 68, 0.6); }
-.btn-logout { background: transparent; color: #888; border: 1px solid #444; }
-.btn-logout:hover { background: #333; color: #fff; }
-.comment-form {
-background: rgba(212, 175, 55, 0.05);
-border: 1px solid #333;
-border-radius: 15px;
-padding: 1.5rem;
-margin-bottom: 2rem;
-}
-.comment-form h3 { color: #d4af37; margin-bottom: 1rem; font-size: 1.2rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-group label { color: #888; font-size: 0.9rem; }
-.form-group input, .form-group textarea, .form-group select {
-background: #0a0a0a;
-border: 1px solid #444;
-border-radius: 8px;
-padding: 0.8rem 1rem;
-color: #fff;
-font-size: 0.95rem;
-transition: border-color 0.3s;
-}
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #d4af37; }
-.form-group textarea { resize: vertical; min-height: 80px; }
-.rating { display: flex; flex-direction: row-reverse; gap: 0.3rem; }
-.rating input { display: none; }
-.rating label { font-size: 1.5rem; color: #444; cursor: pointer; transition: color 0.2s; }
-.rating label:hover, .rating label:hover ~ label, .rating input:checked ~ label { color: #ffd700; }
-.submit-btn {
-background: linear-gradient(135deg, #d4af37, #f4e5c2);
-color: #000;
-border: none;
-padding: 0.9rem 2rem;
-border-radius: 25px;
-font-weight: bold;
-cursor: pointer;
-transition: all 0.3s;
-text-transform: uppercase;
-letter-spacing: 1px;
-font-size: 0.9rem;
-margin-top: 0.5rem;
-}
-.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(212, 175, 55, 0.6); }
-.comments-list { display: flex; flex-direction: column; gap: 1.5rem; }
-.comment-item {
-background: rgba(255, 255, 255, 0.03);
-border: 1px solid #333;
-border-radius: 15px;
-padding: 1.5rem;
-animation: fadeIn 0.4s ease-out;
-position: relative;
-transition: all 0.3s;
-}
-.comment-item.admin-mode { border-color: #ff4444; box-shadow: 0 0 15px rgba(255, 68, 68, 0.2); }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.comment-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
-.comment-avatar {
-width: 45px; height: 45px; border-radius: 50%;
-background: linear-gradient(135deg, #d4af37, #f4e5c2);
-display: flex; align-items: center; justify-content: center;
-font-weight: bold; color: #000; font-size: 1.1rem;
-}
-.comment-user { flex-grow: 1; }
-.comment-user-name { font-weight: 600; color: #fff; font-size: 1.05rem; }
-.comment-date { color: #666; font-size: 0.85rem; }
-.comment-rating { color: #ffd700; font-size: 1rem; }
-.comment-product {
-background: rgba(212, 175, 55, 0.15);
-color: #d4af37;
-padding: 0.25rem 0.7rem;
-border-radius: 15px;
-font-size: 0.8rem;
-font-weight: 500;
-}
-.comment-text { color: #ccc; line-height: 1.6; font-size: 0.95rem; }
-.delete-btn {
-position: absolute;
-top: 1rem; right: 1rem;
-background: linear-gradient(135deg, #ff4444, #cc0000);
-color: #fff;
-border: none;
-width: 32px; height: 32px;
-border-radius: 50%;
-cursor: pointer;
-font-size: 1.2rem;
-display: none;
-align-items: center;
-justify-content: center;
-transition: all 0.3s;
-z-index: 5;
-}
-.delete-btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(255, 68, 68, 0.8); }
-.comment-item.admin-mode .delete-btn { display: flex; }
-.no-comments { text-align: center; color: #666; padding: 3rem; font-style: italic; }
-.admin-modal {
-display: none;
-position: fixed;
-top: 0; left: 0;
-width: 100%; height: 100%;
-background: rgba(0, 0, 0, 0.9);
-z-index: 2000;
-justify-content: center;
-align-items: center;
-backdrop-filter: blur(5px);
-}
-.admin-modal.active { display: flex; }
-.admin-modal-content {
-background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
-border: 2px solid #d4af37;
-border-radius: 20px;
-padding: 2.5rem;
-max-width: 400px;
-width: 90%;
-text-align: center;
-animation: modalSlide 0.3s ease;
-}
-@keyframes modalSlide { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-.admin-modal h3 { color: #d4af37; margin-bottom: 1.5rem; font-size: 1.5rem; }
-.admin-modal input {
-width: 100%;
-background: #0a0a0a;
-border: 1px solid #444;
-border-radius: 8px;
-padding: 0.9rem 1rem;
-color: #fff;
-font-size: 1rem;
-margin-bottom: 1rem;
-text-align: center;
-}
-.admin-modal input:focus { outline: none; border-color: #d4af37; }
-.admin-modal .btn { width: 100%; margin: 0.5rem 0; }
-.admin-hint { color: #666; font-size: 0.85rem; margin-top: 1rem; font-style: italic; }
 footer {
 background: #000;
 border-top: 2px solid #d4af37;
@@ -545,8 +243,8 @@ animation: shine 0.6s ease-in-out;
 /* ===== PRODUCT DETAIL PAGE ===== */
 .product-detail {
 display: grid;
-grid-template-columns: 1.2fr 1.3fr;
-gap: 3rem;
+grid-template-columns: 1.3fr 1.2fr;
+gap: 4rem;
 background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
 border: 1px solid #333;
 border-radius: 30px;
@@ -556,30 +254,34 @@ box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 .product-image-large {
 background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
 border-radius: 20px;
-padding: 2rem;
+padding: 3rem;
 display: flex;
 align-items: center;
 justify-content: center;
 border: 2px solid #333;
-min-height: 500px;
+min-height: 700px;
 position: relative;
 overflow: hidden;
 }
 .product-image-large img {
 width: 100%;
-max-width: 350px;
+max-width: 500px;
 height: auto;
 object-fit: contain;
-filter: drop-shadow(0 20px 40px rgba(212, 175, 55, 0.3));
-transition: opacity 0.4s ease;
+filter: drop-shadow(0 30px 60px rgba(212, 175, 55, 0.4));
+transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.product-image-large img:hover {
+transform: scale(1.05);
 }
 .product-image-large img.fade-out { opacity: 0; }
-.product-info h2 { font-size: 2.2rem; color: #fff; margin-bottom: 1rem; }
+.product-info h2 { font-size: 2.5rem; color: #fff; margin-bottom: 1rem; }
 .price {
-font-size: 3rem;
+font-size: 3.5rem;
 color: #d4af37;
 font-weight: bold;
 margin: 1.5rem 0;
+text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 .specs-section { margin: 2rem 0; }
 .specs-section h3 { color: #d4af37; margin-bottom: 1rem; font-size: 1.3rem; }
@@ -593,28 +295,27 @@ border-radius: 10px;
 .spec-label { color: #888; font-size: 0.85rem; margin-bottom: 0.3rem; }
 .spec-value { color: #fff; font-weight: 600; font-size: 1.1rem; }
 .action-buttons { display: flex; gap: 1rem; margin-top: 2rem; }
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-.product-card { animation: fadeIn 0.6s ease-out forwards; }
-.product-card:nth-child(1) { animation-delay: 0.1s; }
-.product-card:nth-child(2) { animation-delay: 0.2s; }
-.product-card:nth-child(3) { animation-delay: 0.3s; }
-.product-card:nth-child(4) { animation-delay: 0.4s; }
-.product-card:nth-child(5) { animation-delay: 0.5s; }
-.product-card:nth-child(6) { animation-delay: 0.6s; }
-.product-card:nth-child(7) { animation-delay: 0.7s; }
-@keyframes highlight {
-0%, 100% { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); }
-50% { box-shadow: 0 0 60px rgba(212, 175, 55, 0.8), 0 0 100px rgba(212, 175, 55, 0.4); }
+.btn {
+flex: 1;
+padding: 1.2rem;
+border: none;
+border-radius: 12px;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s;
+text-transform: uppercase;
+letter-spacing: 1px;
+font-size: 0.9rem;
 }
-.highlight-card { animation: highlight 2s ease-in-out; border-color: #d4af37; }
-@keyframes imageFadeIn { to { opacity: 1; } }
-.product-image img { opacity: 0; animation: imageFadeIn 0.5s ease-out forwards; }
+.btn-primary { background: linear-gradient(135deg, #00ff88, #00cc6a); color: #000; }
+.btn-primary:hover { box-shadow: 0 0 30px rgba(0, 255, 136, 0.6); transform: translateY(-2px); }
+.btn-secondary { background: transparent; color: #d4af37; border: 2px solid #d4af37; }
+.btn-secondary:hover { background: #d4af37; color: #000; box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
 
 @media (max-width: 1024px) {
-.products-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 .product-detail { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
-.product-image-large { min-height: 350px; }
+.product-image-large { min-height: 500px; padding: 2rem; }
+.product-image-large img { max-width: 400px; }
 }
 @media (max-width: 768px) {
 header { padding: 1.2rem 0.8rem; }
@@ -624,26 +325,10 @@ nav { padding: 0.7rem 0.8rem; }
 nav ul { gap: 0.8rem; }
 nav a { padding: 0.4rem 0.7rem; font-size: 0.85rem; }
 .container { padding: 1.5rem 0.8rem; }
-.stats { padding: 1rem; margin-bottom: 2rem; }
-.stats-number { font-size: 1.2rem; }
-.products-grid { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
-.product-card { border-radius: 14px; }
-.product-image { height: 190px; }
-.product-image img { padding: 0.7rem; }
-.product-image-placeholder { font-size: 3rem; }
-.product-badge { top: 10px; right: 10px; padding: 0.35rem 0.7rem; font-size: 0.68rem; }
-.product-info { padding: 0.9rem; }
-.product-name { font-size: 1.05rem; }
-.product-description { font-size: 0.8rem; margin-bottom: 0.8rem; }
-.product-specs { gap: 0.4rem; margin-bottom: 0.9rem; }
-.spec { padding: 0.28rem 0.55rem; font-size: 0.68rem; }
-.product-actions { gap: 0.5rem; }
-.btn { padding: 0.75rem 0.4rem; font-size: 0.72rem; }
-.comments-section { padding: 1.5rem; }
-.comments-header { flex-direction: column; align-items: flex-start; }
-.form-row { grid-template-columns: 1fr; }
-.comment-header { gap: 0.8rem; }
-.comment-avatar { width: 40px; height: 40px; font-size: 1rem; }
+.product-image-large { min-height: 400px; padding: 1.5rem; }
+.product-image-large img { max-width: 300px; }
+.product-info h2 { font-size: 2rem; }
+.price { font-size: 2.5rem; }
 .color-options { gap: 1rem; }
 .color-label { padding: 1rem; min-width: 90px; }
 .color-preview { width: 50px; height: 50px; }
@@ -653,30 +338,21 @@ footer { padding: 1.5rem 0.8rem; }
 .social-links a { font-size: 1.3rem; }
 }
 @media (max-width: 480px) {
-.product-image { height: 170px; }
-.product-info { padding: 0.8rem; }
-.product-name { font-size: 0.98rem; }
-.product-description { font-size: 0.76rem; }
-.btn { padding: 0.7rem 0.35rem; font-size: 0.68rem; }
-.spec { padding: 0.25rem 0.5rem; font-size: 0.65rem; }
-.comments-section { padding: 1.2rem; }
-.comment-item { padding: 1.2rem; }
-.form-group input, .form-group textarea, .form-group select { padding: 0.7rem; font-size: 0.9rem; }
-.admin-modal-content { padding: 1.5rem; }
-.delete-btn { width: 28px; height: 28px; font-size: 1rem; }
-.product-image-large { min-height: 300px; padding: 1rem; }
-.price { font-size: 2.5rem; }
+.product-image-large { min-height: 350px; padding: 1rem; }
+.product-image-large img { max-width: 250px; }
+.product-info h2 { font-size: 1.8rem; }
+.price { font-size: 2.2rem; }
 .specs-grid { grid-template-columns: 1fr; }
 .action-buttons { flex-direction: column; }
 .color-options { flex-direction: column; align-items: center; }
 .color-label { min-width: 100%; }
+.btn { padding: 1rem; }
 }
 </style>
 </head>
 <body>
 <header id="inicio">
-<div class="admin-indicator" id="adminIndicator">🔐 MODO ADMIN</div>
-<h1 id="logo">✨ Luxury Vape Collection</h1>
+<h1>✨ Luxury Vape Collection</h1>
 <p class="subtitle">Premium Vape Devices & Accessories</p>
 </header>
 <nav>
@@ -687,15 +363,9 @@ footer { padding: 1.5rem 0.8rem; }
 <li><a href="#oxbar">OXBAR</a></li>
 <li><a href="#voopoo">VOPOO</a></li>
 <li><a href="#stlh">STLH</a></li>
-<li><a href="#comentarios">Opiniones</a></li>
 </ul>
 </nav>
 <div class="container">
-<div class="stats">
-<span class="stats-number">🔥 2,847 Likes</span>
-<span style="color: #444; margin: 0 1rem;">•</span>
-<span class="stats-number">👁️ 15,321 Views</span>
-</div>
 <div class="led-strip"></div>
 
 <!-- ===== PRODUCTO SKY SOLO CON SELECTOR DE COLORES ===== -->
@@ -765,63 +435,6 @@ footer { padding: 1.5rem 0.8rem; }
 </div>
 
 <div class="led-strip"></div>
-
-<!-- ===== SECCIÓN DE COMENTARIOS ===== -->
-<section class="comments-section" id="comentarios">
-<div class="comments-header">
-<h2>💬 Opiniones de Clientes</h2>
-<div class="comments-stats">
-<div class="avg-rating">★★★★★ <span id="avgRating">4.8</span></div>
-<div class="total-comments" id="totalComments">12 opiniones</div>
-</div>
-<div class="admin-controls" id="adminControls">
-<button class="btn-admin" onclick="clearAllComments()">🗑️ Borrar Todo</button>
-<button class="btn-admin btn-logout" onclick="logoutAdmin()">🔓 Salir</button>
-</div>
-</div>
-<div class="comment-form">
-<h3>✍️ Deja tu opinión</h3>
-<form id="newCommentForm">
-<div class="form-row">
-<div class="form-group">
-<label for="userName">Tu Nombre *</label>
-<input type="text" id="userName" name="userName" required placeholder="Ej: Carlos M.">
-</div>
-<div class="form-group">
-<label for="userProduct">Producto *</label>
-<select id="userProduct" name="userProduct" required>
-<option value="">Selecciona un producto</option>
-<option value="SKY SOLO">SKY SOLO</option>
-<option value="LIFE POD ECO II">LIFE POD ECO II</option>
-<option value="OXBAR">OXBAR</option>
-<option value="VOPOO">VOPOO</option>
-<option value="SLTHL">SLTHL</option>
-<option value="CLICKMATE">CLICKMATE</option>
-<option value="Nasty FX10i">Nasty FX10i</option>
-<option value="Nasty PX15Ki">Nasty PX15Ki</option>
-</select>
-</div>
-</div>
-<div class="form-group" style="margin-bottom: 1rem;">
-<label>Tu Calificación *</label>
-<div class="rating">
-<input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
-<input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-<input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
-<input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
-<input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
-</div>
-</div>
-<div class="form-group">
-<label for="userComment">Tu Comentario *</label>
-<textarea id="userComment" name="userComment" required placeholder="Cuéntanos tu experiencia..."></textarea>
-</div>
-<button type="submit" class="submit-btn">Publicar Opinión</button>
-</form>
-</div>
-<div class="comments-list" id="commentsList"></div>
-</section>
-<div class="led-strip"></div>
 </div>
 
 <footer>
@@ -835,23 +448,7 @@ footer { padding: 1.5rem 0.8rem; }
 </div>
 </footer>
 
-<!-- Modal de Login Admin -->
-<div class="admin-modal" id="adminModal">
-<div class="admin-modal-content">
-<h3>🔐 Acceso Admin</h3>
-<input type="password" id="adminPassword" placeholder="Contraseña" onkeypress="if(event.key==='Enter')checkAdmin()">
-<button class="btn btn-primary" onclick="checkAdmin()">Entrar</button>
-<button class="btn btn-secondary" onclick="closeAdminModal()">Cancelar</button>
-<p class="admin-hint">💡 Tip: Haz clic 5 veces en el logo para acceder</p>
-</div>
-</div>
-
 <script>
-// ===== CONFIGURACIÓN =====
-const ADMIN_PASSWORD = 'admin123';
-const ADMIN_KEY = 'luxuryVapeAdmin';
-const COMMENTS_KEY = 'luxuryVapeComments';
-
 // URLs de imágenes por color
 const colorImages = {
 'negro': 'https://i.postimg.cc/CxydLsW4/NEGRO.jpg',
@@ -870,147 +467,22 @@ img.classList.remove('fade-out');
 }, 300);
 }
 
-// ===== COMENTARIOS =====
-const defaultComments = [
-{ id: 1, name: "Carlos M.", product: "SKY SOLO", rating: 5, comment: "¡Increíble dispositivo! El color azul es espectacular y la batería dura todo el día.", date: "2026-03-15" },
-{ id: 2, name: "Andrea L.", product: "SKY SOLO", rating: 5, comment: "Me encanta el diseño compacto. El color rainbow es único.", date: "2026-03-12" },
-{ id: 3, name: "Miguel R.", product: "SKY SOLO", rating: 4, comment: "Muy buen vape, potente y elegante. Le quito una estrella por el precio.", date: "2026-03-10" }
-];
-
-function getComments() {
-const stored = localStorage.getItem(COMMENTS_KEY);
-return stored ? JSON.parse(stored) : defaultComments;
-}
-function saveComments(comments) { localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments)); }
-function generateStars(rating) { return '★'.repeat(rating) + '☆'.repeat(5 - rating); }
-function formatDate(dateString) {
-const options = { year: 'numeric', month: 'short', day: 'numeric' };
-return new Date(dateString).toLocaleDateString('es-PE', options);
-}
-function renderComments() {
-const comments = getComments();
-const list = document.getElementById('commentsList');
-const totalEl = document.getElementById('totalComments');
-const avgEl = document.getElementById('avgRating');
-const isAdmin = localStorage.getItem(ADMIN_KEY) === 'true';
-if (comments.length === 0) {
-list.innerHTML = '<div class="no-comments">📝 Sé el primero en dejar una opinión</div>';
-totalEl.textContent = '0 opiniones'; avgEl.textContent = '0.0'; return;
-}
-const avg = (comments.reduce((sum, c) => sum + c.rating, 0) / comments.length).toFixed(1);
-avgEl.textContent = avg;
-totalEl.textContent = `${comments.length} ${comments.length === 1 ? 'opinión' : 'opiniones'}`;
-list.innerHTML = comments.slice().reverse().map(comment => `
-<div class="comment-item ${isAdmin ? 'admin-mode' : ''}" data-id="${comment.id}">
-<button class="delete-btn" onclick="deleteComment(${comment.id})" title="Eliminar comentario">×</button>
-<div class="comment-header">
-<div class="comment-avatar">${comment.name.charAt(0).toUpperCase()}</div>
-<div class="comment-user">
-<div class="comment-user-name">${comment.name}</div>
-<div class="comment-date">${formatDate(comment.date)}</div>
-</div>
-<div class="comment-rating">${generateStars(comment.rating)}</div>
-<span class="comment-product">${comment.product}</span>
-</div>
-<p class="comment-text">${comment.comment}</p>
-</div>`).join('');
-}
-function addComment(name, product, rating, comment) {
-const comments = getComments();
-comments.push({ id: Date.now(), name, product, rating, comment, date: new Date().toISOString().split('T')[0] });
-saveComments(comments);
-renderComments();
-}
-function deleteComment(id) {
-if (!confirm('¿Estás seguro de eliminar este comentario?')) return;
-let comments = getComments();
-comments = comments.filter(c => c.id !== id);
-saveComments(comments);
-renderComments();
-}
-function clearAllComments() {
-if (!confirm('⚠️ ¿ESTÁS SEGURO de BORRAR TODOS los comentarios?')) return;
-localStorage.removeItem(COMMENTS_KEY);
-renderComments();
-alert('✅ Todos los comentarios han sido eliminados');
-}
-
-// ===== ADMIN =====
-function isAdmin() { return localStorage.getItem(ADMIN_KEY) === 'true'; }
-function openAdminModal() {
-document.getElementById('adminModal').classList.add('active');
-document.getElementById('adminPassword').focus();
-}
-function closeAdminModal() {
-document.getElementById('adminModal').classList.remove('active');
-document.getElementById('adminPassword').value = '';
-}
-function checkAdmin() {
-const password = document.getElementById('adminPassword').value;
-if (password === ADMIN_PASSWORD) {
-localStorage.setItem(ADMIN_KEY, 'true');
-closeAdminModal();
-enableAdminMode();
-alert('✅ ¡Bienvenido, Admin!');
-} else { alert('❌ Contraseña incorrecta'); document.getElementById('adminPassword').value = ''; }
-}
-function enableAdminMode() {
-document.getElementById('adminIndicator').classList.add('active');
-document.getElementById('adminControls').classList.add('active');
-renderComments();
-}
-function logoutAdmin() {
-localStorage.removeItem(ADMIN_KEY);
-document.getElementById('adminIndicator').classList.remove('active');
-document.getElementById('adminControls').classList.remove('active');
-renderComments();
-alert('🔓 Has cerrado sesión de Admin');
-}
-
-// ===== EVENTOS =====
-let logoClicks = 0, logoClickTimer;
-document.getElementById('logo').addEventListener('click', function() {
-logoClicks++; clearTimeout(logoClickTimer);
-logoClickTimer = setTimeout(() => { logoClicks = 0; }, 1000);
-if (logoClicks >= 5) { logoClicks = 0; isAdmin() ? logoutAdmin() : openAdminModal(); }
-});
-if (new URLSearchParams(window.location.search).get('admin') === 'true') { isAdmin() ? enableAdminMode() : openAdminModal(); }
-if (isAdmin()) enableAdminMode();
-document.getElementById('newCommentForm').addEventListener('submit', function(e) {
-e.preventDefault();
-const name = document.getElementById('userName').value.trim();
-const product = document.getElementById('userProduct').value;
-const rating = parseInt(document.querySelector('input[name="rating"]:checked').value);
-const comment = document.getElementById('userComment').value.trim();
-if (!name || !product || !rating || !comment) { alert('Por favor, completa todos los campos'); return; }
-addComment(name, product, rating, comment);
-this.reset();
-setTimeout(() => { document.querySelector('.comment-item:last-child')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
-alert('✅ ¡Gracias por tu opinión!');
-});
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function(e) {
-e.preventDefault();
-const targetId = this.getAttribute('href');
-const target = document.querySelector(targetId);
-if (target) {
-target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-if (targetId !== '#inicio' && targetId !== '#productos') {
-setTimeout(() => { target.classList.add('highlight-card'); setTimeout(() => target.classList.remove('highlight-card'), 2000); }, 500);
-}
-}
-});
-});
+// Animación de botones
 document.querySelectorAll('.btn').forEach(btn => {
 btn.addEventListener('click', function() {
 this.style.transform = 'scale(0.95)';
 setTimeout(() => { this.style.transform = ''; }, 150);
 });
 });
-document.getElementById('adminModal').addEventListener('click', function(e) { if (e.target === this) closeAdminModal(); });
 
-// ===== INICIALIZAR =====
-document.addEventListener('DOMContentLoaded', () => { renderComments(); });
+// Navegación suave
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) target.scrollIntoView({ behavior: 'smooth' });
+});
+});
 </script>
 </body>
 </html>
