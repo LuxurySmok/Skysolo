@@ -34,12 +34,69 @@ letter-spacing: 3px;
 }
 h1:hover { opacity: 0.9; }
 .subtitle { color: #888; font-size: 1.1rem; margin-top: 0.5rem; }
-nav {
-background: #000;
-padding: 1rem;
+
+/* ===== TOP BAR ===== */
+.top-bar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem 2rem;
+background: rgba(0, 0, 0, 0.8);
+border-bottom: 1px solid #333;
 position: sticky;
 top: 0;
 z-index: 100;
+}
+.back-btn {
+color: #d4af37;
+text-decoration: none;
+font-weight: 600;
+padding: 0.6rem 1.2rem;
+border: 1px solid #d4af37;
+border-radius: 20px;
+transition: all 0.3s;
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+}
+.back-btn:hover {
+background: #d4af37;
+color: #000;
+transform: translateX(-3px);
+}
+.cart-btn {
+background: linear-gradient(135deg, #ffd700, #ffed4e);
+color: #000;
+text-decoration: none;
+font-weight: bold;
+padding: 0.7rem 1.5rem;
+border-radius: 25px;
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+transition: all 0.3s;
+box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+.cart-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+}
+.cart-count {
+background: #000;
+color: #ffd700;
+width: 24px;
+height: 24px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.85rem;
+font-weight: bold;
+}
+
+nav {
+background: #000;
+padding: 1rem;
 border-bottom: 1px solid #333;
 }
 nav ul {
@@ -179,7 +236,6 @@ transition: all 0.3s;
 box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 2px 10px rgba(255,255,255,0.3), 0 0 20px rgba(0, 255, 136, 0.4);
 transform: scale(1.1);
 }
-/* Colores específicos con gradientes premium 4K */
 .color-preview.negro {
 background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 40%, #0a0a0a 100%);
 box-shadow: 0 8px 32px rgba(0,0,0,0.7), inset 0 2px 10px rgba(255,255,255,0.2);
@@ -219,7 +275,6 @@ text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 color: #00ff88;
 text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
 }
-/* Efecto de brillo */
 .color-label::after {
 content: '';
 position: absolute;
@@ -307,10 +362,24 @@ text-transform: uppercase;
 letter-spacing: 1px;
 font-size: 0.9rem;
 }
-.btn-primary { background: linear-gradient(135deg, #00ff88, #00cc6a); color: #000; }
-.btn-primary:hover { box-shadow: 0 0 30px rgba(0, 255, 136, 0.6); transform: translateY(-2px); }
-.btn-secondary { background: transparent; color: #d4af37; border: 2px solid #d4af37; }
-.btn-secondary:hover { background: #d4af37; color: #000; box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
+.btn-primary { 
+background: linear-gradient(135deg, #00ff88, #00cc6a); 
+color: #000; 
+}
+.btn-primary:hover { 
+box-shadow: 0 0 30px rgba(0, 255, 136, 0.6); 
+transform: translateY(-2px); 
+}
+.btn-secondary { 
+background: transparent; 
+color: #d4af37; 
+border: 2px solid #d4af37; 
+}
+.btn-secondary:hover { 
+background: #d4af37; 
+color: #000; 
+box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); 
+}
 
 @media (max-width: 1024px) {
 .product-detail { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
@@ -318,6 +387,7 @@ font-size: 0.9rem;
 .product-image-large img { max-width: 400px; }
 }
 @media (max-width: 768px) {
+.top-bar { flex-direction: column; gap: 1rem; padding: 1rem; }
 header { padding: 1.2rem 0.8rem; }
 h1 { font-size: 1.8rem; letter-spacing: 2px; }
 .subtitle { font-size: 0.9rem; }
@@ -351,23 +421,34 @@ footer { padding: 1.5rem 0.8rem; }
 </style>
 </head>
 <body>
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+<a href="https://luxurysmok.github.io/Home/" class="back-btn">← Volver a la Tienda</a>
+<a href="#" class="cart-btn">
+🛒 Carrito
+<span class="cart-count">0</span>
+</a>
+</div>
+
 <header id="inicio">
 <h1>✨ Luxury Vape Collection</h1>
 <p class="subtitle">Premium Vape Devices & Accessories</p>
 </header>
-    <nav>
-        <ul>
-            <li><a href="https://luxurysmok.github.io/Home/">Inicio</a></li>
-            <li><a href="https://luxurysmok.github.io/Home/#productos">Productos</a></li>
-            <li><a href="https://luxurysmok.github.io/LifePod/">Life Pod</a></li>
-            <li><a href="https://luxurysmok.github.io/ClickMate/">ClickMate</a></li>
-            <li><a href="https://luxurysmok.github.io/Nastyfx10/">Nasty FX10</a></li>
-            <li><a href="https://luxurysmok.github.io/NastyPX15K/">Nasty PX15K</a></li>
-            <li><a href="https://luxurysmok.github.io/Oxbar/">OXBAR</a></li>
-            <li><a href="https://luxurysmok.github.io/Voopo/">VOPOO</a></li>
-            <li><a href="https://luxurysmok.github.io/STLTH/">STLTH</a></li>
-        </ul>
-    </nav>
+
+<nav>
+<ul>
+<li><a href="https://luxurysmok.github.io/Home/">Inicio</a></li>
+<li><a href="https://luxurysmok.github.io/Home/#productos">Productos</a></li>
+<li><a href="https://luxurysmok.github.io/LifePod/">Life Pod</a></li>
+<li><a href="https://luxurysmok.github.io/ClickMate/">ClickMate</a></li>
+<li><a href="https://luxurysmok.github.io/Nastyfx10/">Nasty FX10</a></li>
+<li><a href="https://luxurysmok.github.io/NastyPX15K/">Nasty PX15K</a></li>
+<li><a href="https://luxurysmok.github.io/Oxbar/">OXBAR</a></li>
+<li><a href="https://luxurysmok.github.io/Voopo/">VOPOO</a></li>
+<li><a href="https://luxurysmok.github.io/STLTH/">STLTH</a></li>
+</ul>
+</nav>
+
 <div class="container">
 <div class="led-strip"></div>
 
@@ -377,7 +458,7 @@ footer { padding: 1.5rem 0.8rem; }
 <img src="https://i.postimg.cc/CxydLsW4/NEGRO.jpg" alt="SKY SOLO" id="productImage">
 </div>
 <div class="product-info">
-<span class="product-badge">💎 VAPORESSO</span>
+<span class="product-badge" style="display: inline-block; background: linear-gradient(135deg, #d4af37, #f4e5c2); color: #000; padding: 0.5rem 1.5rem; border-radius: 25px; font-weight: bold; margin-bottom: 1rem;">💎 VAPORESSO</span>
 <h2>SKY SOLO</h2>
 <div class="price">S/.179.99</div>
 <p class="description">Dispositivo todo en uno con batería integrada de 1400mAh y tanque de 8ml. Diseño compacto y elegante con bobinas GT Core para un sabor excepcional y vapor denso. Perfecto para vapers que buscan portabilidad sin sacrificar rendimiento.</p>
@@ -430,9 +511,10 @@ footer { padding: 1.5rem 0.8rem; }
 <div class="spec-item"><div class="spec-label">Peso</div><div class="spec-value">Compacto y Ligero</div></div>
 </div>
 </div>
+
 <div class="action-buttons">
-<button class="btn btn-primary">Añadir al Carrito</button>
-<button class="btn btn-secondary">Consultar WhatsApp</button>
+<button class="btn btn-primary" onclick="addToCart()">🛒 Añadir al Carrito</button>
+<button class="btn btn-secondary" onclick="consultWhatsApp()">💬 Consultar WhatsApp</button>
 </div>
 </div>
 </div>
@@ -468,6 +550,25 @@ setTimeout(() => {
 img.src = colorImages[color];
 img.classList.remove('fade-out');
 }, 300);
+}
+
+// Añadir al carrito
+let cartCount = 0;
+function addToCart() {
+cartCount++;
+document.querySelector('.cart-count').textContent = cartCount;
+document.querySelector('.cart-btn').style.transform = 'scale(1.1)';
+setTimeout(() => {
+document.querySelector('.cart-btn').style.transform = 'scale(1)';
+}, 200);
+alert('✅ SKY SOLO añadido al carrito\n\nPrecio: S/.179.99\n\n🛒 Total en carrito: ' + cartCount + ' producto(s)');
+}
+
+// Consultar WhatsApp
+function consultWhatsApp() {
+const message = 'Hola! 👋\n\nEstoy interesado en el SKY SOLO - Luxury Vape\n\n💰 Precio: S/.179.99\n\n¿Me podrían brindar más información?';
+const whatsappURL = `https://wa.me/51999999999?text=${encodeURIComponent(message)}`;
+window.open(whatsappURL, '_blank');
 }
 
 // Animación de botones
